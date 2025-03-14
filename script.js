@@ -289,7 +289,21 @@ document.addEventListener("DOMContentLoaded", function () {
                             plantList.appendChild(plantCard);
                         });
                     }
+                    displayPlants(plants);
 
+    searchInput.addEventListener("input", event => {
+        const searchText = event.target.value.toLowerCase();
+        const filteredPlants = plants.filter(
+            plant =>
+                plant.name.toLowerCase().includes(searchText) ||
+                    plant.scientificName.toLowerCase().includes(searchText) ||
+                    plant.description.toLowerCase().includes(searchText) ||
+                    plant.locations.some(location => location.toLowerCase().includes(searchText)) ||
+                    plant.region.toLowerCase().includes(searchText)
+                );
+            displayPlants(filteredPlants);
+        });
+        
     // Populate dropdown menu with unique categories
     const categories = ["All", ...new Set(plants.map(plant => plant.category))];
 
