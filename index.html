@@ -3,16 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Home</title>
+    <meta name="description" content="Native Plants of Ontario - Discover, learn about, and identify native plant species throughout Ontario, Canada">
+    <title>Native Plants of Ontario - Discover Ontario's Native Flora</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="style.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
   </head>
   <body>
-
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-green">
       <div class="container">
-        <a class="navbar-brand" href="index.html"><img src="NPO_Logo.png" alt="logo" width="150"></a>
+        <a class="navbar-brand" href="index.html">
+          <img src="NPO_Logo.png" alt="Native Plants of Ontario Logo" width="150">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,51 +32,163 @@
       </div>
     </nav>
     
-    <!-- Heading & Searchbar -->
+    <!-- Hero Section -->
     <div class="hero-container">
       <div class="container col-xxl-8 px-4 py-5 hero">
         <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
           <div class="col-10 col-sm-8 col-lg-6">
-            <img src="images/trillium_illustration.jpg" class="d-block mx-lg-auto img-fluid" alt="trillium_illustration" width="700" height="500" loading="lazy">
+            <img src="images/trillium_illustration.jpg" class="d-block mx-lg-auto img-fluid" alt="White Trillium - Ontario's Provincial Flower" width="700" height="500" loading="lazy">
           </div>
           <div class="col-lg-6">
             <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Discover Ontario's Native Plant Species</h1>
-            <p class="lead">Explore Ontario's native plants with a comprehensive resource, providing valuable insights to help you discover, understand, and appreciate the region’s diverse flora.</p>
-            <form>
-                <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
-                <button type="button" id="findPlants" class="btn btn-success btn-lg px-5 me-md-2" onclick="location.href='plantexplorer.html';">Find Plants</button>
-                </div>
-            </form>
+            <p class="lead mb-4">Explore Ontario's rich botanical heritage with our comprehensive resource. Learn about native plants that support local ecosystems, attract pollinators, and thrive in our unique climate.</p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4">
+              <a href="plantexplorer.html" class="btn btn-success btn-lg px-5 me-md-2">
+                <i class="bi bi-search me-2"></i>Find Plants
+              </a>
+              <a href="about.html" class="btn btn-outline-success btn-lg px-4">Learn More</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    
+
+    <!-- Feature Boxes -->
+    <div class="container py-5">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+              <div class="feature-icon bg-success bg-gradient text-white mb-3">
+                <i class="bi bi-tree fs-2"></i>
+              </div>
+              <h3 class="card-title">Identify Native Species</h3>
+              <p class="card-text">Browse our extensive database of plants native to Ontario. Filter by habitat, bloom time, sun exposure, and more.</p>
+              <a href="plantexplorer.html" class="btn btn-sm btn-outline-success mt-3">Explore Plants</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+              <div class="feature-icon bg-success bg-gradient text-white mb-3">
+                <i class="bi bi-info-circle fs-2"></i>
+              </div>
+              <h3 class="card-title">Ecological Benefits</h3>
+              <p class="card-text">Learn how native plants support local wildlife, conserve water, reduce maintenance, and improve soil health.</p>
+              <a href="benefits.html" class="btn btn-sm btn-outline-success mt-3">Discover Benefits</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 shadow-sm border-0">
+            <div class="card-body text-center p-4">
+              <div class="feature-icon bg-success bg-gradient text-white mb-3">
+                <i class="bi bi-book fs-2"></i>
+              </div>
+              <h3 class="card-title">Gardening Resources</h3>
+              <p class="card-text">Access guides, planting calendars, and care instructions to successfully incorporate native plants in your garden.</p>
+              <a href="resources.html" class="btn btn-sm btn-outline-success mt-3">View Resources</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured Plants Carousel -->
+    <div class="container-fluid bg-light py-5">
+      <div class="container">
+        <div class="row mb-4">
+          <div class="col-12 text-center">
+            <h5 class="mb-3">Featured Native Plants</h5>
+            <p class="text-muted">Discover some of Ontario's most beautiful and ecologically important native plants</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="card h-100">
+              <img src="images/trillium.jpg" class="card-img-top" alt="White Trillium">
+              <div class="card-body">
+                <h5 class="card-title">White Trillium</h5>
+                <p class="card-text">Ontario's provincial flower, this woodland perennial blooms in spring.</p>
+                <a href="plantexplorer.html?plant=white-trillium" class="btn btn-sm btn-success">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100">
+              <img src="images/red_osier_dogwood.jpeg" class="card-img-top" alt="Cardinal Flower">
+              <div class="card-body">
+                <h5 class="card-title">Red Osier Dogwood</h5>
+                <p class="card-text">Red Osier Dogwood is a shrub native to North America. It is known for its red stems.</p>
+                <a href="plantexplorer.html?plant=cardinal-flower" class="btn btn-sm btn-success">Learn More</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4 mb-3">
+            <div class="card h-100">
+              <img src="images/canadian_goldenrod.jpg" class="card-img-top" alt="Butterfly Weed">
+              <div class="card-body">
+                <h5 class="card-title">Canadian Goldenrod</h5>
+                <p class="card-text">Canada Goldenrod is a perennial flower native to North America. It is known for its yellow flowers.</p>
+                <a href="plantexplorer.html?plant=butterfly-weed" class="btn btn-sm btn-success">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="mb-4">Join Our Community</h2>
+          <p class="lead mb-4">Sign up for our newsletter to receive plant identification tips, seasonal updates, and conservation news.</p>
+          <form class="row g-3 justify-content-center">
+            <div class="col-auto">
+              <label for="emailSignup" class="visually-hidden">Email</label>
+              <input type="email" class="form-control" id="emailSignup" placeholder="Your email address">
+            </div>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-success mb-3">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="text-white py-4" style="background-color:#00350b;">
       <div class="container">
         <div class="row">
+          <!-- Column 1: About -->
           <div class="col-md-4">
             <h5>About Us</h5>
             <p>Native Plants of Ontario is a resource dedicated to showcasing the diverse flora native to Ontario. Explore plant profiles, learn about their habitats and uses, and discover their ecological importance.</p>
           </div>
+
+          <!-- Column 2: Quick Links -->
           <div class="col-md-4">
             <h5>Quick Links</h5>
             <ul class="list-unstyled">
               <li><a href="index.html" class="text-white">Home</a></li>
-              <li><a href="plantexplorer.html" class="text-white">Plant Explorer</a></li>
+              <li><a href="plantExplorer.html" class="text-white">Plant Explorer</a></li>
               <li><a href="about.html" class="text-white">About</a></li>
               <li><a href="contact.html" class="text-white">Contact Us</a></li>
             </ul>
           </div>
+
+          <!-- Column 3: Contact -->
           <div class="col-md-4">
             <h5>Contact Us</h5>
-            <p>Email: nativeplantsofontario@gmail.com</p>
-            <p>Phone: +1 (249) 878-9140</p>
+            <p>Email: <a href="mailto:nativeplantsofontario@gmail.com" class="text-white">nativeplantsofontario@gmail.com</a></p>
+            <p>Phone: <a href="tel:+12498789140" class="text-white">+1 (249) 878-9140</a></p>
           </div>
         </div>
+
         <div class="text-center mt-4">
-          <p>&copy; <span id="year"></span> Native Plants of Ontario. All rights reserved.</p>
+          <p>&copy; <span id="currentYear"></span> Native Plants of Ontario. All rights reserved.</p>
         </div>
       </div>
     </footer>

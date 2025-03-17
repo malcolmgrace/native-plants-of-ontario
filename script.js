@@ -1,6 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Set the current year in the footer for all pages
+    const yearElement = document.getElementById('year');
+    if (yearElement) {
+        yearElement.textContent = new Date().getFullYear();
+    }
+
+    // Plant Explorer page functionality
     const plantList = document.getElementById("plant-list");
     const searchInput = document.getElementById("search");
+    const categoryDropdown = document.getElementById("category-dropdown");
     
     const plants = [
         {
@@ -264,7 +272,9 @@ document.addEventListener("DOMContentLoaded", function () {
             region: "Southwest"
         },    
     ];
-
+    
+ // Only execute plant explorer code if we're on that page
+ if (plantList && searchInput && categoryDropdown) {
     // Function to display plants
     function displayPlants(plants) {
         plantList.innerHTML = ""; // Clear the existing plant list
@@ -272,37 +282,40 @@ document.addEventListener("DOMContentLoaded", function () {
             const plantCard = document.createElement("div");
             plantCard.className = "col-md-4 mb-4"; // Add margin for spacing
 
-                plantCard.innerHTML = `
-                    <div class="card h-100 p-3">
-                        <img src="${plant.image}" class="card-img-top" alt="${plant.name}">
-                        <div class="card-body">
-                            <h5 class="card-title">${plant.name}</h5>
-                            <p class="card-text"><em>${plant.scientificName}</em></p>
-                            <p class="card-text">${plant.description}</p>
-                            <button class="btn btn-success mt-2 d-inline-block">Learn More</button>
-                        </div>
-                        <div class="card-footer d-flex justify-content-center p-3">
-                            <small class="text-muted"><strong>Locations:</strong> ${plant.locations.join(", ")}</small>
-                        </div>
+            plantCard.innerHTML = `
+                <div class="card h-100 p-3">
+                    <img src="${plant.image}" class="card-img-top" alt="${plant.name}">
+                    <div class="card-body">
+                        <h5 class="card-title">${plant.name}</h5>
+                        <p class="card-text"><em>${plant.scientificName}</em></p>
+                        <p class="card-text">${plant.description}</p>
+                        <button class="btn btn-success mt-2 d-inline-block">Learn More</button>
                     </div>
-                `;
-                            plantList.appendChild(plantCard);
-                        });
-                    }
-                    displayPlants(plants);
+                    <div class="card-footer d-flex justify-content-center p-3">
+                        <small class="text-muted"><strong>Locations:</strong> ${plant.locations.join(", ")}</small>
+                    </div>
+                </div>
+            `;
+            plantList.appendChild(plantCard);
+        });
+    }
+    
+    // Initialize plant display
+    displayPlants(plants);
 
+    // Search functionality
     searchInput.addEventListener("input", event => {
         const searchText = event.target.value.toLowerCase();
         const filteredPlants = plants.filter(
             plant =>
                 plant.name.toLowerCase().includes(searchText) ||
-                    plant.scientificName.toLowerCase().includes(searchText) ||
-                    plant.description.toLowerCase().includes(searchText) ||
-                    plant.locations.some(location => location.toLowerCase().includes(searchText)) ||
-                    plant.region.toLowerCase().includes(searchText)
-                );
-            displayPlants(filteredPlants);
-        });
+                plant.scientificName.toLowerCase().includes(searchText) ||
+                plant.description.toLowerCase().includes(searchText) ||
+                plant.locations.some(location => location.toLowerCase().includes(searchText)) ||
+                plant.region.toLowerCase().includes(searchText)
+        );
+        displayPlants(filteredPlants);
+    });
         
     // Populate dropdown menu with unique categories
     const categories = ["All", ...new Set(plants.map(plant => plant.category))];
@@ -315,37 +328,64 @@ document.addEventListener("DOMContentLoaded", function () {
         categoryLink.textContent = category;
         categoryLink.addEventListener("click", () => filterByCategory(category));
         categoryItem.appendChild(categoryLink);
-        document.getElementById("category-dropdown").appendChild(categoryItem);
-      });
-
-    // Filter plants by category
-        function filterByCategory(category) {
-            document.getElementById("selected-category").textContent = category; // Update selected category display
-            const filteredPlants =
-                category === "All" ? plants : plants.filter(plant => plant.category === category);
-            displayPlants(filteredPlants);
-        }
-
-    // Initially display all plants
-    displayPlants(plants);
-});
-
-// Form submission
-  document.querySelector("form").addEventListener("submit", async function (e) {
-    e.preventDefault();
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    const response = await fetch("http://localhost:5000/send", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, email, message }),
+        categoryDropdown.appendChild(categoryItem);
     });
 
-    const data = await response.json();
-    alert(data.message);
-  });
+    // Filter plants by category
+    function filterByCategory(category) {
+        const selectedCategory = document.getElementById("selected-category");
+        if (selectedCategory) {
+            selectedCategory.textContent = category; // Update selected category display
+        }
+        const filteredPlants = 
+            category === "All" ? plants : plants.filter(plant => plant.category === category);
+        displayPlants(filteredPlants);
+    }
+}
 
+// Contact Form functionality
+const contactForm = document.querySelector("form");
+const nameInput = document.getElementById("name");
+const emailInput = document.getElementById("email");
+const messageInput = document.getElementById("message");
 
-document.getElementById('year').textContent = new Date().getFullYear();
+// Only execute contact form code if we're on the contact page
+if (contactForm && nameInput && emailInput && messageInput) {
+    contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        
+        // Basic form validation
+        if (!nameInput.value || !emailInput.value || !messageInput.value) {
+            alert("Please fill in all fields");
+            return;
+        }
+
+        try {
+            const response = await fetch("http://localhost:5000/send", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ 
+                    name: nameInput.value, 
+                    email: emailInput.value, 
+                    message: messageInput.value 
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error("Network response was not ok");
+            }
+
+            const data = await response.json();
+            alert(data.message || "Message sent successfully");
+            
+            // Clear form fields after successful submission
+            nameInput.value = "";
+            emailInput.value = "";
+            messageInput.value = "";
+        } catch (error) {
+            console.error("Error sending message:", error);
+            alert("There was a problem sending your message. Please try again later.");
+        }
+    });
+}
+});
