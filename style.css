@@ -1,69 +1,80 @@
- body {
-        background-color: #f5f5f5; /* Light grey color */
-    }
+body {
+  background-color: #f5f5f5; /* Light grey color */
+}
 
 .navbar { 
-        background-color: #00350b; /* Green color */
-    }
-    .navbar .navbar-nav .nav-link {
-        color: #ffffff; /* White color */
-    }
-    
-    .navbar .navbar-nav .nav-link:hover {
-        color: #e9ac2b; /* Yellow color */
-    }
-    
-    .navbar .navbar-nav .nav-link.active {
-        color: #e9ac2b; /* Yellow color */
-    }
-      
-      #search {
-        min-width: 270px; /* Adjust as needed */
-        width: 100%;
-      }
-      
+  background-color: #00350b; /* Green color */
+}
+.navbar .navbar-nav .nav-link {
+  color: #ffffff; /* White color */
+}
+
+.navbar .navbar-nav .nav-link:hover {
+  color: #e9ac2b; /* Yellow color */
+}
+
+.navbar .navbar-nav .nav-link.active {
+  color: #e9ac2b; /* Yellow color */
+}
+
+.navbar-toggler {
+  background-color: rgba(255, 255, 255, 0.1); /* Light background */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Light border */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+#search {
+  min-width: 270px; /* Adjust as needed */
+  width: 100%;
+}
+
 .footer {
-        background-color: #00350b; /* Green color */
+  background-color: #00350b; /* Green color */
+}
+
+@keyframes panRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(30px); /* Adjust this value to control how far it pans */
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Animate each element with unique delays */
+  
+.hero-container h1 {
+  animation: fadeIn 3.0s ease-in-out forwards;
+  animation-delay: 0s;
+}
+
+.hero-container p {
+  animation: fadeIn 3.5s ease-in-out forwards;
+  animation-delay: 0s;
+}
+
+.hero-container button {
+  animation: panRight 1.5s ease-in-out forwards;
+  animation-delay: 0.9s;
+}
+
+@media (max-width: 991px) {
+    .hero-image,
+    .plant-explorer-logo {
+        display: none !important;
     }
-
-    @keyframes panRight {
-        from {
-          transform: translateX(0);
-          opacity: 1;
-        }
-        to {
-          transform: translateX(30px); /* Adjust this value to control how far it pans */
-          opacity: 1;
-        }
-      }
-
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      
-      /* Animate each element with unique delays */
-      
-        .hero-container img {
-            animation: fadeIn 5.0s ease-in-out forwards;
-            animation-delay: 0s;
-        }
-        
-        .hero-container h1 {
-            animation: fadeIn 3.0s ease-in-out forwards;
-            animation-delay: 0s;
-        }
-        
-        .hero-container p {
-            animation: fadeIn 3.5s ease-in-out forwards;
-            animation-delay: 0s;
-        }
-        
-        .hero-container button {
-            animation: panRight 1.5s ease-in-out forwards;
-            animation-delay: 0.9s;
-        }
+}
