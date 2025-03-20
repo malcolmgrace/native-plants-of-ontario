@@ -53,33 +53,40 @@
           <div class="card shadow-sm">
             <div class="card-body p-4">
               <h2 class="card-title mb-4">Send Us a Message</h2>
-              <form id="contactForm" method="post" action="process_form.php" novalidate>
+              <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="contactForm" novalidate>
+                <p class="hidden">
+                  <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                </p>
+                <input type="hidden" name="form-name" value="contact" />
+                
                 <div class="mb-3">
                   <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
                   <div class="invalid-feedback">Please enter your name</div>
                 </div>
+                
                 <div class="mb-3">
                   <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
                   <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                   <div class="invalid-feedback">Please enter a valid email address</div>
                 </div>
+                
                 <div class="mb-3">
                   <label for="subject" class="form-label">Subject</label>
                   <input type="text" class="form-control" id="subject" name="subject" placeholder="What's this about?">
                 </div>
+                
                 <div class="mb-3">
                   <label for="message" class="form-label">Message <span class="text-danger">*</span></label>
                   <textarea class="form-control" id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
                   <div class="invalid-feedback">Please enter your message</div>
                 </div>
+                
                 <button type="submit" class="btn btn-success">Submit Message</button>
               </form>
             </div>
           </div>
         </div>
-      </div>
-    </main>
 
     <!-- Footer -->
     <footer class="text-white py-4" style="background-color:#00350b;">
