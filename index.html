@@ -159,41 +159,45 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="text-white py-4" style="background-color:#00350b;">
-      <div class="container">
-        <div class="row">
-          <!-- Column 1: About -->
-          <div class="col-md-4">
-            <h5>About Us</h5>
-            <p>Native Plants of Ontario is a resource dedicated to showcasing the diverse flora native to Ontario. Explore plant profiles, learn about their habitats and uses, and discover their ecological importance.</p>
-          </div>
-
-          <!-- Column 2: Quick Links -->
-          <div class="col-md-4">
-            <h5>Quick Links</h5>
-            <ul class="list-unstyled">
-              <li><a href="index.html" class="text-white">Home</a></li>
-              <li><a href="plantExplorer.html" class="text-white">Plant Explorer</a></li>
-              <li><a href="about.html" class="text-white">About</a></li>
-              <li><a href="contact.html" class="text-white">Contact Us</a></li>
-            </ul>
-          </div>
-
-          <!-- Column 3: Contact -->
-          <div class="col-md-4">
-            <h5>Contact Us</h5>
-            <p>Email: <a href="mailto:nativeplantsofontario@gmail.com" class="text-white">nativeplantsofontario@gmail.com</a></p>
-            <p>Phone: <a href="tel:+12498789140" class="text-white">+1 (249) 878-9140</a></p>
-          </div>
-        </div>
-
-        <div class="text-center mt-4">
-          <p>&copy; <span id="currentYear"></span> Native Plants of Ontario. All rights reserved.</p>
-        </div>
+ <!-- Footer -->
+ <footer class="text-white py-4" style="background-color:#00350b;">
+  <div class="container">
+    <div class="row">
+      <!-- Column 1: About -->
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>Native Plants of Ontario is a resource dedicated to showcasing the diverse flora native to Ontario. Explore plant profiles, learn about their habitats and uses, and discover their ecological importance.</p>
       </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-  </body>
+
+      <!-- Column 2: Quick Links -->
+      <div class="col-md-4">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="index.html" class="text-white">Home</a></li>
+          <li><a href="plantExplorer.html" class="text-white">Plant Explorer</a></li>
+          <li><a href="about.html" class="text-white">About</a></li>
+          <li><a href="contact.html" class="text-white">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact -->
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <p>Email: <a href="mailto:nativeplantsofontario@gmail.com" class="text-white">nativeplantsofontario@gmail.com</a></p>
+        <p>Phone: <a href="tel:+12498789140" class="text-white">+1 (249) 878-9140</a></p>
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+      <p>&copy; <span id="currentYear"></span> Native Plants of Ontario. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script>
+  // Set current year in footer
+  document.getElementById('currentYear').textContent = new Date().getFullYear();
+</script>
+</body>
 </html>
